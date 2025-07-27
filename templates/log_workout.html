@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log Workout</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main_styles.css') }}">
+    <style>
+        .exercise-row { margin-bottom: 10px; }
+        select, input[type=text], input[type=number] { margin-right: 10px; }
+    </style>
+</head>
+
+<body>
+    {# 
+ This section renders the workout logging form.
+The user can input multiple exercises, including the name,
+weight, unit (kg/lbs), sets, and reps. Users can add more exercises dynamically.
+Below the exercise list, the form collects session-level data:
+intensity, duration, and optional notes.
+On submit, all data is sent via POST to the log_workout route.
+#}
+<div class="top-nav">
+    <a href="{{ url_for('home') }}"> Back to Home</a>
+</div>
+<div class="center">
+    <h1>Log Your Workout</h1>
+    <form method="POST" id="workoutForm">
+        <div id="exercises">
+            <div class="exercise-row">
+                <input type="text" name="exercise_name[]" placeholder="Exercise Name" required>
+                <input type="number" name="weights[]" placeholder="Weight" min="0" required>
+                <select name="weight_units[]">
+                    <option value="kg">kg</option>
+                    <option value="lbs">lbs</option>
+                </select>
+                <select name="sets[]" required>
+                    <option value="" disabled selected>Sets</option>
+                    {% for i in range(1, 11) %}<option value="{{ i }}">{{ i }}</option>{% endfor %}
+                </select>
+                <select name="reps[]" required>
+                    <option value="" disabled selected>Reps</option>
+                    {% for i in range(1, 31) %}<option value="{{ i }}">{{ i }}</option>{% endfor %}
+                </select>
+                <button type="button" class="remove-exercise" onclick="removeExercise(this)" style="display:none;">Remove</button>
+            </div>
+        </div>
+        <button type="button" onclick="addExercise()">Add Another Exercise</button>
+        <br><br>
+        <label for="intensity">Intensity:</label>
+        <select name="intensity" id="intensity" required>
+            <option value="" disabled selected>Select intensity</option>
+            {% for i in range(1, 11) %}<option value="{{ i }}">{{ i }}</option>{% endfor %}
+        </select>
+        <br><br>
+        <label for="duration">Time (minutes):</label>
+        <input type="number" name="duration" id="duration" min="1" required>
+        <br><br>
+        <label for="notes">Notes:</label>
+        <input type="text" name="notes" id="notes">
+        <br><br>
+        <input type="submit" value="Log Workout">
+    </form>
+
+    <script>
+    function addExercise() {
+        const exercisesDiv = document.getElementById('exercises');
+        const firstRow = exercisesDiv.querySelector('.exercise-row');
+        const newRow = firstRow.cloneNode(true);
+        newRow.querySelectorAll('input, select').forEach(el => {
+            if (el.type === 'text' || el.type === 'number') el.value = '';
+            if (el.tagName === 'SELECT') el.selectedIndex = 0;
+        });
+        newRow.querySelector('.remove-exercise').style.display = 'inline';
+        exercisesDiv.appendChild(newRow);
+    }
+
+    function removeExercise(btn) {
+        const row = btn.closest('.exercise-row');
+        row.remove();
+    }
+    </script>
+</div>
+</body>
+</html>

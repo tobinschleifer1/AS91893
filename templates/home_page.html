@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main_styles.css') }}">
+
+  
+</head>
+<body>
+<div class="center">
+    <div class="top-bar">
+        <div class="profile-icon">
+            <a href="{{ url_for('profile_settings') }}" title="Edit Profile">👤</a>
+        </div>
+        <h1>Welcome, {{ user.Username }}</h1>
+        <div>
+            <a href="{{ url_for('log_workout') }}">Log Workout</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </div>
+
+    <div class="goals-info">
+        <!-- 🟦 Body Weight Progress -->
+        {% if user.current_weight and user.goal_weight %}
+            <p><strong>Body Weight:</strong> {{ user.current_weight }} / {{ user.goal_weight }} kg</p>
+            {% if user.goal_weight < user.current_weight %}
+                {% set weight_progress = (user.goal_weight / user.current_weight) * 100 %}
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: {{ weight_progress | round(1) }}%; background: #ff5722;"></div>
+                </div>
+            {% else %}
+                {% set weight_progress = (user.current_weight / user.goal_weight) * 100 %}
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: {{ weight_progress | round(1) }}%; background: #4caf50;"></div>
+                </div>
+            {% endif %}
+            <p>Progress: {{ weight_progress | round(1) }}%</p>
+        {% endif %}
+
+        <!-- 🟩 Bench Press -->
+        {% if user.bench_current and user.bench_goal %}
+            <p><strong>Bench Press:</strong> {{ user.bench_current }} / {{ user.bench_goal }} kg</p>
+            {% set bench_pct = (user.bench_current / user.bench_goal * 100) %}
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: {{ bench_pct | round(1) }}%; background: #4CAF50;"></div>
+            </div>
+            <p>Progress: {{ bench_pct | round(1) }}%</p>
+        {% endif %}
+
+        <!-- 🟧 Squat -->
+        {% if user.squat_current and user.squat_goal %}
+            <p><strong>Squat:</strong> {{ user.squat_current }} / {{ user.squat_goal }} kg</p>
+            {% set squat_pct = (user.squat_current / user.squat_goal * 100) %}
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: {{ squat_pct | round(1) }}%; background: #FF9800;"></div>
+            </div>
+            <p>Progress: {{ squat_pct | round(1) }}%</p>
+        {% endif %}
+
+        <!-- 🟥 Deadlift -->
+        {% if user.deadlift_current and user.deadlift_goal %}
+            <p><strong>Deadlift:</strong> {{ user.deadlift_current }} / {{ user.deadlift_goal }} kg</p>
+            {% set dl_pct = (user.deadlift_current / user.deadlift_goal * 100) %}
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: {{ dl_pct | round(1) }}%; background: #F44336;"></div>
+            </div>
+            <p>Progress: {{ dl_pct | round(1) }}%</p>
+        {% endif %}
+    </div>
+
+    <h2>Your Logged Workouts</h2>
+    {% if grouped_workouts %}
+        {% for ts, block in grouped_workouts.items() %}
+        <div class="workout-entry">
+            <div class="workout-header" onclick="toggleDetails(this)">
+                Logged at: {{ ts | datetimeformat }}
+            </div>
+            <div class="workout-details">
+                <p>Duration: {{ block.meta.duration }} mins |
+                    Intensity: {{ block.meta.intensity }} |
+                    Calories: {{ block.meta.calories_burned }}</p>
+                    <ul>
+                    {% for ex in block.exercises %}
+                    <li>
+                        {{ ex.name }}: {{ ex.sets }} sets × {{ ex.reps }} reps @ {{ ex.weight }} {{ ex.unit }}
+                    </li>
+                    {% endfor %}
+                    </ul>
+
+                {% if block.meta.notes %}
+                    <p><strong>Notes:</strong> {{ block.meta.notes }}</p>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No workouts logged yet.</p>
+    {% endif %}
+</div>
+
+<script>
+function toggleDetails(header) {
+    const detail = header.nextElementSibling;
+    detail.style.display = detail.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+</body>
+</html>

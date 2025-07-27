@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+<div class="center">
+    <h1>Create Account</h1>
+
+    <form method="POST">
+        <div class="txt_field">
+            <input type="text" name="username" required  minlength="3" maxlength="30">
+            <label>Username</label>
+            <span></span>
+        </div>
+
+        <div class="txt_field">
+            <input type="password" name="password" required minlength="6"  maxlength="30">
+            <label>Password</label>
+            <span></span>
+        </div>
+
+        <div class="txt_field">
+            <input type="password" name="confirm_password" required>
+            <label>Confirm Password</label>
+            <span></span>
+        </div>
+
+        <div class="txt_field">
+            <input type="text" name="recovery_phrase" required  minlength="3" maxlength="30">
+            <label>Recovery Phrase (used if password is lost)</label>
+            <span></span>
+        </div>
+
+        <input type="submit" value="Create Account">
+
+        <div class="users_signup">
+            Already have an account? <a href="{{ url_for('login') }}">Login here</a>
+        </div>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="error">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</div>
+</body>
+</html>
