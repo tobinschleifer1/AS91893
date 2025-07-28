@@ -1,5 +1,5 @@
 to get website to run input this command into terminal first 
-C:\Users\tobyf\Desktop\projects dgt\AS91893\workout_tracker> 
+cd .\workout_tracker\
 then type "python app.py"
 should work
 
