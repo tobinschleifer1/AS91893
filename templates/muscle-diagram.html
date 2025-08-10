@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Muscle Diagram</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/muscle-diagram.css') }}">
+</head>
+<body>
+  <div class="muscle-diagram-container">
+    <h1>Interactive Muscle Anatomy</h1>
+    
+    <div class="view-toggle">
+      <button id="front-btn" class="active" onclick="showView('front')">Front View</button>
+      <button id="side-btn" onclick="showView('side')">Side View</button>
+      <button id="back-btn" onclick="showView('back')">Back View</button>
+    </div>
+
+    <div class="image-wrapper">
+      <img 
+        id="muscle-image" 
+        src="{{ url_for('static', filename='images/front.jpg') }}" 
+        alt="Muscle Diagram"
+        data-front="{{ url_for('static', filename='images/front.jpg') }}"
+        data-side="{{ url_for('static', filename='images/side.jpg') }}"
+        data-back="{{ url_for('static', filename='images/back.jpg') }}"
+      >
+      <!-- Muscle dots will be dynamically added here -->
+    </div>
+
+    <div class="overlay hidden" onclick="closePopup()"></div>
+    <div id="muscle-popup" class="popup hidden">
+      <h2 id="muscle-name"></h2>
+      <p><strong>Function:</strong> <span id="muscle-description"></span></p>
+      <p><strong>Location:</strong> <span id="muscle-location"></span></p>
+      <p><strong>How to Train:</strong> <span id="muscle-exercises"></span></p>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/muscle-diagram.js') }}"></script>
+</body>
+</html>

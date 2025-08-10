@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About This Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main_styles.css') }}">
+</head>
+<div class="top-nav">
+    <a href="{{ url_for('home') }}"> Back to Home</a>
+</div>
+<body>
+    <div class="container">
+        <h1>About This Website</h1>
+        <p>This website was created by Tobin Schleifer with the goal of helping people track their workouts and set personal fitness goals.</p>
+        <p>Whether you're just starting out or have been training for a while, this platform allows you to:</p>
+        <ul>
+            <li>Log your daily workouts</li>
+            <li>View an exercise library for ideas</li>
+            <li>Track your progress</li>
+            <li>Set and review fitness goals</li>
+        </ul>
+        <p>The website is designed to be simple, efficient, and accessible for anyone who wants to improve their fitness journey.</p>
+    </div>
+<script src="{{ url_for('static', filename='js/theme-switcher.js') }}"></script>
+
+</body>
+</html>

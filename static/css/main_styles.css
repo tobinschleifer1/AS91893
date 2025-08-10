@@ -1,9 +1,9 @@
 :root {
-  --background-color: #f2f2f2;
-  --foreground-color: white;
+  --background-color: #f5f5f5;
+  --foreground-color: #ffffff;
   --primary-color: #2691d9;
   --primary-hover: #1b7cb2;
-  --text-color: #232946;
+  --text-color: #1b7cb2;
   --accent-color: #4e54c8;
   --button-gradient: linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%);
   --button-gradient-hover: linear-gradient(90deg, #8f94fb 0%, #4e54c8 100%);
@@ -14,24 +14,61 @@
   --background-color: #121212;
   --foreground-color: #1e1e1e;
   --primary-color: #bb86fc;
-  --primary-hover: #985eff;
-  --text-color: #e0e0e0;
+  --primary-hover: #9a65db;
+  --text-color: #9a65db;
   --accent-color: #03dac6;
-  --button-gradient: linear-gradient(90deg, #333 0%, #555 100%);
-  --button-gradient-hover: linear-gradient(90deg, #555 0%, #333 100%);
+  --button-gradient: linear-gradient(90deg, #2c2c2c 0%, #555555 100%);
+  --button-gradient-hover: linear-gradient(90deg, #555555 0%, #2c2c2c 100%);
 }
 
 /* Blue Theme */
 [data-theme="blue"] {
-  --background-color: #001f3f;
-  --foreground-color: #003366;
-  --primary-color: #00bcd4;
-  --primary-hover: #0097a7;
-  --text-color: #ffffff;
+  --background-color: #0a192f;
+  --foreground-color: #112240;
+  --primary-color: #64ffda;
+  --primary-hover: #1ecbe1;
+  --text-color: #64ffda;
   --accent-color: #00bcd4;
-  --button-gradient: linear-gradient(90deg, #005f99 0%, #00bcd4 100%);
-  --button-gradient-hover: linear-gradient(90deg, #00bcd4 0%, #005f99 100%);
+  --button-gradient: linear-gradient(90deg, #0f4c81 0%, #00bcd4 100%);
+  --button-gradient-hover: linear-gradient(90deg, #00bcd4 0%, #0f4c81 100%);
 }
+
+/* Dark Green Theme */
+[data-theme="dark-green"] {
+  --background-color: #0e1a14;
+  --foreground-color: #1c2b23;
+  --primary-color: #1e5631;
+  --primary-hover: #14532d;
+  --text-color: #a9dfbf;
+  --accent-color: #28b463;
+  --button-gradient: linear-gradient(90deg, #14532d 0%, #28b463 100%);
+  --button-gradient-hover: linear-gradient(90deg, #28b463 0%, #14532d 100%);
+}
+
+/* Golden Theme */
+[data-theme="golden"] {
+  --background-color: #fffdf0;
+  --foreground-color: #fbe7a1;
+  --primary-color: #d4af37;
+  --primary-hover: #b8901e;
+  --text-color: #5a4500;
+  --accent-color: #ffce54;
+  --button-gradient: linear-gradient(90deg, #fcd77f 0%, #d4af37 100%);
+  --button-gradient-hover: linear-gradient(90deg, #d4af37 0%, #fcd77f 100%);
+}
+
+/* Red Theme */
+[data-theme="red"] {
+  --background-color: #2b0000;
+  --foreground-color: #3f0000;
+  --primary-color: #b22222;
+  --primary-hover: #8b0000;
+  --text-color: #ff6b6b;
+  --accent-color: #e74c3c;
+  --button-gradient: linear-gradient(90deg, #8b0000 0%, #e74c3c 100%);
+  --button-gradient-hover: linear-gradient(90deg, #e74c3c 0%, #8b0000 100%);
+}
+
 
 body {
   background-color: var(--background-color);
@@ -190,11 +227,34 @@ input:focus, select:focus, textarea:focus {
 }
 
 .top-nav {
-  background-color: var(--primary-color);
-  padding: 10px 20px;
-  display: flex;
-  justify-content: flex-end;
+    display: flex;
+    justify-content: space-between; /* pushes nav-left to the left, nav-right to the right */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--foreground-color);
+    color: var(--text-color);
 }
+
+.nav-left a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#theme-select {
+    padding: 5px;
+    background-color: var(--foreground-color);
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
+}
+
 
 .top-nav a {
   color: white;
@@ -240,4 +300,19 @@ input:focus, select:focus, textarea:focus {
 
 .messages {
   color: red;
+}
+
+.top-nav a {
+  background-color: white;
+  color: var(--text-color);
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.top-nav a:hover {
+  background-color: var(--primary-hover);
+  color: white;
 }

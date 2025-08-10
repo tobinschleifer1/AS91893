@@ -13,16 +13,16 @@
 <body>
 
 <div class="top-nav">
-    <a href="{{ url_for('home') }}">Back to Home</a>
-
-    <!-- Theme selector -->
-    <label for="theme-select" style="margin-left: 20px;">Theme:</label>
-    <select id="theme-select" onchange="setTheme(this.value)">
-        <option value="default">Default</option>
-        <option value="dark">Dark</option>
-        <option value="blue">Blue</option>
-    </select>
+    <div class="nav-left">
+        <a href="{{ url_for('home') }}">Back to Home</a>
 </div>
+<div class="nav-right">
+    <a href="{{ url_for('theme') }}">Change Theme</a>
+</div>
+
+</div>
+
+
 
 <div class="container">
     <form method="POST" onsubmit="return confirmUpdate();">
@@ -32,19 +32,16 @@
 
         <h2>Set Workout Goals</h2>
 
-        <!-- Bench -->
         <label>Current bench (kg):</label>
         <input type="number" name="bench_current" value="{{ user.bench_current or '' }}" min="0" max="500" placeholder="Current Bench Press (kg)">
         <label>Goal bench (kg):</label>
         <input type="number" name="bench_goal" value="{{ user.bench_goal or '' }}" min="0" max="500" placeholder="Bench Press Goal (kg)">
 
-        <!-- Squat -->
         <label>Current squat (kg):</label>
         <input type="number" name="squat_current" value="{{ user.squat_current or '' }}" min="0" max="500" placeholder="Current Squat (kg)">
         <label>Squat goal (kg):</label>
         <input type="number" name="squat_goal" value="{{ user.squat_goal or '' }}" min="0" max="500" placeholder="Squat Goal (kg)">
 
-        <!-- Deadlift -->
         <label>Current deadlift (kg):</label>
         <input type="number" name="deadlift_current" value="{{ user.deadlift_current or '' }}" min="0" max="500" placeholder="Current Deadlift (kg)">
         <label>Deadlift goal (kg):</label>
@@ -53,7 +50,6 @@
         <h2>Body Weight Goals</h2>
         <label>Current Weight (kg):</label>
         <input type="number" name="current_weight" step="0.1" min="0" max="500" value="{{ user.current_weight or '' }}" placeholder="Enter your current weight">
-
         <label>Goal Weight (kg):</label>
         <input type="number" name="goal_weight" step="0.1" min="0" max="500" value="{{ user.goal_weight or '' }}" placeholder="Enter your goal weight">
 
@@ -74,19 +70,6 @@
         {% endwith %}
     </form>
 </div>
-
-<!-- Theme-switching script -->
-<script>
-    function setTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-    }
-
-    // Load saved theme
-    const savedTheme = localStorage.getItem('theme') || 'default';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    document.getElementById('theme-select').value = savedTheme;
-</script>
-
+<script src="{{ url_for('static', filename='js/theme-switcher.js') }}"></script>
 </body>
 </html>

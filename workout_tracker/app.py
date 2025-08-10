@@ -246,6 +246,21 @@ def profile_settings():
 
     return render_template('profile_settings.html', user=user)
 
+@app.route('/theme')
+def theme():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+    return render_template('theme.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
+@app.route('/muscles')
+def muscles():
+    return render_template('muscle-diagram.html')
+
 @app.route('/profile_setup', methods=['GET', 'POST'])
 def profile_setup():
     if 'user_id' not in session:

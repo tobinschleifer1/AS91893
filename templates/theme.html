@@ -1,0 +1,33 @@
+<!-- templates/theme.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Theme Settings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main_styles.css') }}">
+</head>
+<body>
+
+<div class="top-nav">
+    <div class="nav-left">
+        <a href="{{ url_for('profile_settings') }}">Back to Settings</a>
+    </div>
+</div>
+
+<div class="main-container">
+    <h1>Choose Your Theme</h1>
+    <label for="theme-select">Select Theme:</label>
+    <select id="theme-select">
+        <option value="default">Default</option>
+        <option value="dark">Dark</option>
+        <option value="blue">Blue</option>
+        <option value="dark-green">Dark Green</option>
+        <option value="golden">Gold</option>
+        <option value="red">Red</option>
+    </select>
+</div>
+
+<script src="{{ url_for('static', filename='js/theme-switcher.js') }}"></script>
+
+</body>
+</html>
