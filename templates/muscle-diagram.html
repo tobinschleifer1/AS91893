@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <div class="top-nav">
+    <a href="{{ url_for('home') }}"> Back to Home</a>
   <title>Interactive Muscle Diagram</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/muscle-diagram.css') }}">
 </head>
 <body>
   <div class="muscle-diagram-container">
     <h1>Interactive Muscle Anatomy</h1>
-    
+  
     <div class="view-toggle">
       <button id="front-btn" class="active" onclick="showView('front')">Front View</button>
       <button id="side-btn" onclick="showView('side')">Side View</button>
