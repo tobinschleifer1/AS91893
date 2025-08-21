@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Assistant Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Removed the problematic back to home link - add it back if you create a proper home route -->
+    <div class="container">
+        <div class="chatbot-container">
+            <!-- Header -->
+            <div class="chatbot-header">
+                <div class="header-content">
+                    <i class="fas fa-dumbbell header-icon"></i>
+                    <div class="header-text">
+                        <h1>Workout Assistant</h1>
+                        <p>Your personal fitness coach</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Messages Container -->
+            <div class="messages-container" id="messagesContainer">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <div class="message-avatar bot-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="message-bubble bot-bubble">
+                            <p>Hi! I'm your personal workout assistant. I can help you with exercise routines, form tips, nutrition advice, and workout planning. What would you like to know?</p>
+                            <span class="message-time"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Typing Indicator -->
+            <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                <div class="message-content">
+                    <div class="message-avatar bot-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-bubble bot-bubble">
+                        <div class="typing-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Suggestions -->
+            <div class="suggestions-container">
+                <p class="suggestions-label">Try asking about:</p>
+                <div class="suggestions-buttons">
+                    <button class="suggestion-btn" data-suggestion="Beginner workouts">Beginner workouts</button>
+                    <button class="suggestion-btn" data-suggestion="Chest exercises">Chest exercises</button>
+                    <button class="suggestion-btn" data-suggestion="Protein intake">Protein intake</button>
+                    <button class="suggestion-btn" data-suggestion="Weight loss">Weight loss</button>
+                    <button class="suggestion-btn" data-suggestion="Motivation tips">Motivation tips</button>
+                </div>
+            </div>
+
+            <!-- Input Container -->
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="messageInput" 
+                        placeholder="Ask me about workouts, nutrition, or fitness goals..."
+                        rows="1"></textarea>
+                    <button id="sendButton" class="send-button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+</body>
+</html>

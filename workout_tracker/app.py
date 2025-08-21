@@ -252,6 +252,12 @@ def theme():
         return redirect(url_for('login'))
     return render_template('theme.html')
 
+@app.route('/chatbot')
+def chatbot():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+    return render_template('chatbot.html')
+
 @app.route('/about')
 def about():
     return render_template('about.html')
