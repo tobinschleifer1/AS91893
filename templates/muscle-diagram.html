@@ -3,12 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <div class="top-nav">
-    <a href="{{ url_for('home') }}"> Back to Home</a>
   <title>Interactive Muscle Diagram</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/muscle-diagram.css') }}">
 </head>
 <body>
+  <!-- Navigation at the top of the page -->
+  <div class="top-nav">
+    <div class="nav-left">
+      <a href="{{ url_for('home') }}">Back to Home</a>
+    </div>
+    <div class="nav-right">
+      <!-- Empty for now since theme switcher is on a separate page -->
+    </div>
+  </div>
+
+  <!-- Main content -->
   <div class="muscle-diagram-container">
     <h1>Interactive Muscle Anatomy</h1>
   
@@ -41,5 +50,6 @@
   </div>
 
   <script src="{{ url_for('static', filename='js/muscle-diagram.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/theme-switcher.js') }}"></script>
 </body>
 </html>
