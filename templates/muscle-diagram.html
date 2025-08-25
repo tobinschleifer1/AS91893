@@ -1,55 +1,112 @@
+<!-- Main template for the Interactive Muscle Diagram page -->
+<!-- This is a Flask/Jinja2 template for the muscle anatomy learning tool -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Standard character encoding for proper text display -->
   <meta charset="UTF-8" />
+  
+  <!-- Viewport meta tag for responsive design on mobile devices -->
+  <!-- Ensures proper scaling and prevents zooming issues on mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Page title displayed in browser tab -->
   <title>Interactive Muscle Diagram</title>
+  
+  <!-- Link to the specialized CSS file for muscle diagram styling -->
+  <!-- This contains all the theme variables and component styles -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/muscle-diagram.css') }}">
 </head>
 <body>
-  <!-- Navigation at the top of the page -->
+  <!-- Top navigation bar for page navigation -->
   <div class="top-nav">
+    <!-- Left side navigation - contains back button -->
     <div class="nav-left">
+      <!-- Link back to the home page using Flask's url_for() function -->
       <a href="{{ url_for('home') }}">Back to Home</a>
     </div>
+    
+    <!-- Right side navigation - currently empty but maintained for layout consistency -->
     <div class="nav-right">
       <!-- Empty for now since theme switcher is on a separate page -->
+      <!-- This div maintains the flex layout structure even when empty -->
     </div>
   </div>
 
-  <!-- Main content -->
+  <!-- Main content container for the entire muscle diagram interface -->
   <div class="muscle-diagram-container">
+    <!-- Primary page heading -->
     <h1>Interactive Muscle Anatomy</h1>
   
+    <!-- Button group for switching between anatomical views -->
     <div class="view-toggle">
+      <!-- Front view button - set as active by default -->
+      <!-- onclick attribute calls JavaScript function to switch views -->
       <button id="front-btn" class="active" onclick="showView('front')">Front View</button>
+      
+      <!-- Side view button -->
       <button id="side-btn" onclick="showView('side')">Side View</button>
+      
+      <!-- Back view button -->
       <button id="back-btn" onclick="showView('back')">Back View</button>
     </div>
 
+    <!-- Container for the muscle diagram image and interactive dots -->
     <div class="image-wrapper">
+      <!-- Main muscle diagram image -->
       <img 
         id="muscle-image" 
+        
+        <!-- Default image source - starts with front view -->
         src="{{ url_for('static', filename='images/front.jpg') }}" 
+        
+        <!-- Alt text for accessibility and screen readers -->
         alt="Muscle Diagram"
+        
+        <!-- Data attributes store URLs for different anatomical views -->
+        <!-- JavaScript uses these to switch between images dynamically -->
         data-front="{{ url_for('static', filename='images/front.jpg') }}"
         data-side="{{ url_for('static', filename='images/side.jpg') }}"
         data-back="{{ url_for('static', filename='images/back.jpg') }}"
       >
-      <!-- Muscle dots will be dynamically added here -->
+      <!-- Interactive muscle dots will be dynamically added here by JavaScript -->
+      <!-- Each dot represents a clickable muscle that shows information popup -->
     </div>
 
+    <!-- Modal overlay - darkens background when popup is shown -->
+    <!-- onclick="closePopup()" allows clicking outside popup to close it -->
+    <!-- "hidden" class initially hides the overlay -->
     <div class="overlay hidden" onclick="closePopup()"></div>
+    
+    <!-- Popup modal for displaying muscle information -->
+    <!-- Initially hidden, shown when user clicks on a muscle dot -->
     <div id="muscle-popup" class="popup hidden">
+      <!-- Dynamic heading - muscle name inserted by JavaScript -->
       <h2 id="muscle-name"></h2>
+      
+      <!-- Function/Description section -->
+      <!-- JavaScript populates the span with muscle function details -->
       <p><strong>Function:</strong> <span id="muscle-description"></span></p>
+      
+      <!-- Anatomical location section -->
+      <!-- JavaScript populates the span with muscle location information -->
       <p><strong>Location:</strong> <span id="muscle-location"></span></p>
+      
+      <!-- Training/Exercise recommendations section -->
+      <!-- JavaScript populates the span with recommended exercises -->
       <p><strong>How to Train:</strong> <span id="muscle-exercises"></span></p>
+      
+      <!-- Close button to dismiss the popup -->
       <button onclick="closePopup()">Close</button>
     </div>
   </div>
 
+  <!-- JavaScript file containing muscle data and interaction logic -->
+  <!-- This handles view switching, dot placement, and popup functionality -->
   <script src="{{ url_for('static', filename='js/muscle-diagram.js') }}"></script>
+  
+  <!-- JavaScript file for theme switching functionality -->
+  <!-- This handles theme persistence and application across page loads -->
   <script src="{{ url_for('static', filename='js/theme-switcher.js') }}"></script>
 </body>
 </html>

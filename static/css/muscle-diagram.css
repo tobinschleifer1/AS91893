@@ -1,376 +1,448 @@
+/* Default Theme - Light/Standard Theme Variables */
+/* CSS Custom Properties (variables) that can be referenced throughout the stylesheet */
+/* These define the color palette and visual properties for the default light theme */
 :root {
-  --background-color: #f5f5f5;
-  --foreground-color: #ffffff;
-  --primary-color: #2691d9;
-  --primary-hover: #1b7cb2;
-  --text-color: #1b7cb2;
-  --accent-color: #4e54c8;
-  --button-gradient: linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%);
-  --button-gradient-hover: linear-gradient(90deg, #8f94fb 0%, #4e54c8 100%);
-  --body-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --shadow-color: rgba(0,0,0,0.1);
-  --shadow-color-dark: rgba(0,0,0,0.2);
-  --shadow-color-light: rgba(0,0,0,0.3);
-  --border-color: #ddd;
-  --popup-text-color: #666;
-  --dot-border-color: #333;
+  --background-color: #f5f5f5;        /* Main page background color */
+  --foreground-color: #ffffff;        /* Container/card background color */
+  --primary-color: #2691d9;           /* Main brand/accent color */
+  --primary-hover: #1b7cb2;           /* Darker shade for hover states */
+  --text-color: #1b7cb2;              /* Primary text color */
+  --accent-color: #4e54c8;            /* Secondary accent color for highlights */
+  
+  /* Gradient definitions for buttons and visual elements */
+  --button-gradient: linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%);           /* Default button gradient */
+  --button-gradient-hover: linear-gradient(90deg, #8f94fb 0%, #4e54c8 100%);     /* Reversed gradient for hover effect */
+  --body-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);            /* Background gradient for entire page */
+  
+  /* Shadow color variations for depth and layering */
+  --shadow-color: rgba(0,0,0,0.1);        /* Light shadow for subtle depth */
+  --shadow-color-dark: rgba(0,0,0,0.2);   /* Medium shadow for more prominent elements */
+  --shadow-color-light: rgba(0,0,0,0.3);  /* Stronger shadow for emphasized elements */
+  
+  /* Border and text colors for various UI elements */
+  --border-color: #ddd;                /* Light gray border color */
+  --popup-text-color: #666;           /* Secondary text color for popup content */
+  --dot-border-color: #333;           /* Border color for muscle dots */
 }
 
-/* Dark Theme */
+/* Dark Theme - Overrides default variables when [data-theme="dark"] is applied to html element */
 [data-theme="dark"] {
-  --background-color: #121212;
-  --foreground-color: #1e1e1e;
-  --primary-color: #bb86fc;
-  --primary-hover: #9a65db;
-  --text-color: #e1e1e1;
-  --accent-color: #580a85;
+  --background-color: #121212;        /* Dark background for reduced eye strain */
+  --foreground-color: #1e1e1e;        /* Slightly lighter dark for containers */
+  --primary-color: #bb86fc;           /* Purple accent color popular in dark themes */
+  --primary-hover: #9a65db;           /* Darker purple for hover states */
+  --text-color: #e1e1e1;              /* Light gray text for good contrast */
+  --accent-color: #580a85;            /* Deep purple accent */
+  
+  /* Muted gradients appropriate for dark theme */
   --button-gradient: linear-gradient(90deg, #2c2c2c 0%, #555555 100%);
   --button-gradient-hover: linear-gradient(90deg, #555555 0%, #2c2c2c 100%);
   --body-gradient: linear-gradient(135deg, #2c2c54 0%, #40405a 100%);
+  
+  /* Stronger shadows needed for dark backgrounds */
   --shadow-color: rgba(0,0,0,0.3);
   --shadow-color-dark: rgba(0,0,0,0.4);
   --shadow-color-light: rgba(0,0,0,0.5);
-  --border-color: #444;
-  --popup-text-color: #ccc;
-  --dot-border-color: #fff;
+  
+  /* Dark theme appropriate colors */
+  --border-color: #444;               /* Medium gray borders */
+  --popup-text-color: #ccc;          /* Light gray for secondary text */
+  --dot-border-color: #fff;          /* White borders for visibility */
 }
 
-/* Blue Theme */
+/* Blue Theme - Ocean/Tech inspired color scheme */
 [data-theme="blue"] {
-  --background-color: #0a192f;
-  --foreground-color: #112240;
-  --primary-color: #64ffda;
-  --primary-hover: #1ecbe1;
-  --text-color: #64ffda;
-  --accent-color: #00bcd4;
+  --background-color: #0a192f;        /* Deep navy background */
+  --foreground-color: #112240;        /* Slightly lighter navy for containers */
+  --primary-color: #64ffda;           /* Bright cyan/teal accent */
+  --primary-hover: #1ecbe1;           /* Darker cyan for hover */
+  --text-color: #64ffda;              /* Matching cyan text */
+  --accent-color: #00bcd4;            /* Material Design teal */
+  
+  /* Blue/teal gradient scheme */
   --button-gradient: linear-gradient(90deg, #0f4c81 0%, #00bcd4 100%);
   --button-gradient-hover: linear-gradient(90deg, #00bcd4 0%, #0f4c81 100%);
   --body-gradient: linear-gradient(135deg, #0a192f 0%, #1a365d 100%);
+  
+  /* Standard dark theme shadows */
   --shadow-color: rgba(0,0,0,0.3);
   --shadow-color-dark: rgba(0,0,0,0.4);
   --shadow-color-light: rgba(0,0,0,0.5);
-  --border-color: #2d3748;
-  --popup-text-color: #a0aec0;
-  --dot-border-color: #64ffda;
+  
+  /* Blue theme specific colors */
+  --border-color: #2d3748;            /* Blue-gray borders */
+  --popup-text-color: #a0aec0;       /* Light blue-gray text */
+  --dot-border-color: #64ffda;       /* Matching cyan borders */
 }
 
-/* Dark Green Theme */
+/* Dark Green Theme - Nature/forest inspired color scheme */
 [data-theme="dark-green"] {
-  --background-color: #0e1a14;
-  --foreground-color: #1c2b23;
-  --primary-color: #1e5631;
-  --primary-hover: #14532d;
-  --text-color: #a9dfbf;
-  --accent-color: #28b463;
+  --background-color: #0e1a14;        /* Very dark forest green */
+  --foreground-color: #1c2b23;        /* Slightly lighter dark green */
+  --primary-color: #1e5631;           /* Deep forest green */
+  --primary-hover: #14532d;           /* Even darker green for hover */
+  --text-color: #a9dfbf;              /* Light mint green text */
+  --accent-color: #28b463;            /* Bright emerald green */
+  
+  /* Green gradient scheme */
   --button-gradient: linear-gradient(90deg, #14532d 0%, #28b463 100%);
   --button-gradient-hover: linear-gradient(90deg, #28b463 0%, #14532d 100%);
   --body-gradient: linear-gradient(135deg, #0e1a14 0%, #1c2b23 100%);
+  
+  /* Standard dark theme shadows */
   --shadow-color: rgba(0,0,0,0.3);
   --shadow-color-dark: rgba(0,0,0,0.4);
   --shadow-color-light: rgba(0,0,0,0.5);
-  --border-color: #2d5a32;
-  --popup-text-color: #7fb069;
-  --dot-border-color: #28b463;
+  
+  /* Green theme specific colors */
+  --border-color: #2d5a32;            /* Dark green borders */
+  --popup-text-color: #7fb069;       /* Medium green text */
+  --dot-border-color: #28b463;       /* Bright green borders */
 }
 
-/* Golden Theme */
+/* Golden Theme - Luxury/elegant color scheme */
 [data-theme="golden"] {
-  --background-color: #fffdf0;
-  --foreground-color: #fbe7a1;
-  --primary-color: #d4af37;
-  --primary-hover: #b8901e;
-  --text-color: #5a4500;
-  --accent-color: #ffce54;
+  --background-color: #fffdf0;        /* Cream/off-white background */
+  --foreground-color: #fbe7a1;        /* Light golden yellow */
+  --primary-color: #d4af37;           /* Classic gold color */
+  --primary-hover: #b8901e;           /* Darker gold for hover */
+  --text-color: #5a4500;              /* Dark brown/gold text */
+  --accent-color: #ffce54;            /* Bright golden yellow */
+  
+  /* Golden gradient scheme */
   --button-gradient: linear-gradient(90deg, #fcd77f 0%, #d4af37 100%);
   --button-gradient-hover: linear-gradient(90deg, #d4af37 0%, #fcd77f 100%);
-  --body-gradient: linear-gradient(135deg, #ffffff 0%, #ffffff00 100%);
+  --body-gradient: linear-gradient(135deg, #ffffff 0%, #ffffff00 100%);    /* Subtle white gradient */
+  
+  /* Gold-tinted shadows for luxury feel */
   --shadow-color: rgba(212,175,55,0.1);
   --shadow-color-dark: rgba(212,175,55,0.2);
   --shadow-color-light: rgba(212,175,55,0.3);
-  --border-color: #d4af37;
-  --popup-text-color: #8b6914;
-  --dot-border-color: #5a4500;
+  
+  /* Golden theme specific colors */
+  --border-color: #d4af37;            /* Gold borders */
+  --popup-text-color: #8b6914;       /* Dark gold text */
+  --dot-border-color: #5a4500;       /* Dark brown borders */
 }
 
-/* Red Theme */
+/* Red Theme - Bold/intense color scheme */
 [data-theme="red"] {
-  --background-color: #2b0000;
-  --foreground-color: #3f0000;
-  --primary-color: #b22222;
-  --primary-hover: #8b0000;
-  --text-color: #ff6b6b;
-  --accent-color: #e74c3c;
+  --background-color: #2b0000;        /* Very dark red/maroon */
+  --foreground-color: #3f0000;        /* Slightly lighter dark red */
+  --primary-color: #b22222;           /* Fire brick red */
+  --primary-hover: #8b0000;           /* Dark red for hover */
+  --text-color: #ff6b6b;              /* Light red/pink text */
+  --accent-color: #e74c3c;            /* Bright red accent */
+  
+  /* Red gradient scheme */
   --button-gradient: linear-gradient(90deg, #8b0000 0%, #e74c3c 100%);
   --button-gradient-hover: linear-gradient(90deg, #e74c3c 0%, #8b0000 100%);
   --body-gradient: linear-gradient(135deg, #8b0000 0%, #dc143c 100%);
+  
+  /* Red-tinted shadows */
   --shadow-color: rgba(139,0,0,0.3);
   --shadow-color-dark: rgba(139,0,0,0.4);
   --shadow-color-light: rgba(139,0,0,0.5);
-  --border-color: #8b0000;
-  --popup-text-color: #ff9999;
-  --dot-border-color: #ff6b6b;
+  
+  /* Red theme specific colors */
+  --border-color: #8b0000;            /* Dark red borders */
+  --popup-text-color: #ff9999;       /* Light pink text */
+  --dot-border-color: #ff6b6b;       /* Light red borders */
 }
 
+/* Base body styling - applies to entire page */
 body {
-  margin: 0;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: var(--body-gradient);
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  padding: 0;
-  min-height: 100vh;
-  color: var(--text-color);
-  transition: background 0.3s ease, color 0.3s ease;
+  margin: 0;                           /* Remove default margins */
+  font-family: 'Segoe UI', Arial, sans-serif;  /* Modern, readable font stack */
+  background: var(--body-gradient);   /* Apply the theme's background gradient */
+  display: flex;                      /* Use flexbox for layout */
+  justify-content: center;            /* Center content horizontally */
+  align-items: flex-start;            /* Align content to top vertically */
+  flex-direction: column;             /* Stack elements vertically */
+  padding: 0;                         /* Remove default padding */
+  min-height: 100vh;                  /* Ensure full viewport height */
+  color: var(--text-color);           /* Apply theme text color */
+  transition: background 0.3s ease, color 0.3s ease;  /* Smooth theme transitions */
 }
 
+/* Top navigation bar styling */
 .top-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background-color: var(--foreground-color);
-  color: var(--text-color);
-  width: 100%;
-  box-shadow: 0 2px 10px var(--shadow-color);
-  box-sizing: border-box;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  margin: 0;
+  display: flex;                      /* Use flexbox for nav layout */
+  justify-content: space-between;     /* Space items apart (logo left, controls right) */
+  align-items: center;                /* Center items vertically */
+  padding: 15px 20px;                 /* Add padding for breathing room */
+  background-color: var(--foreground-color);  /* Use theme's foreground color */
+  color: var(--text-color);           /* Use theme's text color */
+  width: 100%;                        /* Full width navigation */
+  box-shadow: 0 2px 10px var(--shadow-color);  /* Subtle shadow for depth */
+  box-sizing: border-box;             /* Include padding in width calculation */
+  transition: background-color 0.3s ease, color 0.3s ease;  /* Smooth theme transitions */
+  margin: 0;                          /* Remove any default margins */
 }
 
+/* Navigation left side (logo/brand) styling */
 .nav-left a {
-  color: var(--text-color);
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.2rem;
+  color: var(--text-color);           /* Use theme text color */
+  text-decoration: none;              /* Remove default underline */
+  font-weight: bold;                  /* Make text bold */
+  font-size: 1.2rem;                  /* Larger font size for prominence */
 }
 
+/* Navigation right side (controls) styling */
 .nav-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: flex;                      /* Use flexbox for control layout */
+  align-items: center;                /* Center controls vertically */
+  gap: 10px;                          /* Space between control elements */
 }
 
+/* Theme selection dropdown styling */
 #theme-select {
-  padding: 8px 12px;
-  background-color: var(--foreground-color);
-  color: var(--text-color);
-  border: 1.5px solid var(--accent-color);
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  padding: 8px 12px;                  /* Internal padding for comfortable clicking */
+  background-color: var(--foreground-color);  /* Match container background */
+  color: var(--text-color);           /* Use theme text color */
+  border: 1.5px solid var(--accent-color);   /* Colored border using accent color */
+  border-radius: 8px;                 /* Rounded corners */
+  font-size: 0.9rem;                  /* Slightly smaller text */
+  font-weight: 600;                   /* Semi-bold text */
+  cursor: pointer;                    /* Show pointer cursor on hover */
+  transition: border-color 0.2s, box-shadow 0.2s;  /* Smooth focus transitions */
 }
 
+/* Theme dropdown focus state */
 #theme-select:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(78, 84, 200, 0.2);
+  outline: none;                      /* Remove default browser outline */
+  box-shadow: 0 0 0 2px rgba(78, 84, 200, 0.2);  /* Custom focus ring */
 }
 
+/* Main container for the muscle diagram */
 .muscle-diagram-container {
-  max-width: 1000px;
-  width: 100%;
-  text-align: center;
-  background: var(--foreground-color);
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 20px 40px var(--shadow-color);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-  margin: 20px auto;
-  align-self: center;
+  max-width: 1000px;                  /* Maximum width to prevent overly wide layouts */
+  width: 100%;                        /* Full width up to max-width */
+  text-align: center;                 /* Center all text content */
+  background: var(--foreground-color);  /* Use theme's foreground color */
+  border-radius: 20px;                /* Large rounded corners for modern look */
+  padding: 30px;                      /* Internal spacing */
+  box-shadow: 0 20px 40px var(--shadow-color);  /* Large shadow for depth */
+  transition: background 0.3s ease, box-shadow 0.3s ease;  /* Smooth theme transitions */
+  margin: 20px auto;                  /* Center the container with vertical margin */
+  align-self: center;                 /* Center within flex parent */
 }
 
+/* Main heading styling */
 h1 {
-  color: var(--text-color);
-  margin-bottom: 30px;
-  font-size: 2.5em;
-  text-shadow: 2px 2px 4px var(--shadow-color);
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  transition: color 0.3s ease;
+  color: var(--text-color);           /* Use theme text color */
+  margin-bottom: 30px;                /* Space below heading */
+  font-size: 2.5em;                   /* Large, prominent text */
+  text-shadow: 2px 2px 4px var(--shadow-color);  /* Subtle text shadow */
+  font-weight: 700;                   /* Bold text */
+  letter-spacing: 1.5px;              /* Spaced out letters for elegance */
+  transition: color 0.3s ease;        /* Smooth color transitions */
 }
 
+/* Container for view toggle buttons */
 .view-toggle {
-  margin-bottom: 30px;
+  margin-bottom: 30px;                /* Space below button group */
 }
 
+/* Individual view toggle button styling */
 .view-toggle button {
-  margin: 0 10px;
-  padding: 15px 30px;
-  font-size: 18px;
-  cursor: pointer;
-  border: none;
-  border-radius: 25px;
-  background: var(--button-gradient);
-  color: white;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px var(--shadow-color-dark);
+  margin: 0 10px;                     /* Horizontal spacing between buttons */
+  padding: 15px 30px;                 /* Large padding for easy clicking */
+  font-size: 18px;                    /* Large, readable text */
+  cursor: pointer;                    /* Show pointer cursor */
+  border: none;                       /* Remove default button border */
+  border-radius: 25px;                /* Fully rounded corners (pill shape) */
+  background: var(--button-gradient); /* Use theme's button gradient */
+  color: white;                       /* White text for contrast */
+  font-weight: 600;                   /* Semi-bold text */
+  transition: all 0.3s ease;          /* Smooth transitions for all properties */
+  box-shadow: 0 4px 15px var(--shadow-color-dark);  /* Shadow for depth */
 }
 
+/* Button hover effects */
 .view-toggle button:hover {
-  background: var(--button-gradient-hover);
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 6px 20px var(--shadow-color-light);
+  background: var(--button-gradient-hover);  /* Reversed gradient on hover */
+  transform: translateY(-2px) scale(1.05);   /* Lift and slightly enlarge */
+  box-shadow: 0 6px 20px var(--shadow-color-light);  /* Enhanced shadow */
 }
 
+/* Active button state (currently selected view) */
 .view-toggle button.active {
-  background: var(--accent-color);
-  transform: scale(1.05);
+  background: var(--accent-color);     /* Use accent color for active state */
+  transform: scale(1.05);              /* Slightly enlarged */
 }
 
+/* Wrapper for the muscle diagram image */
 .image-wrapper {
-  position: relative;
-  margin: 20px auto;
-  display: inline-block;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px var(--shadow-color-dark);
-  transition: box-shadow 0.3s ease;
+  position: relative;                 /* Allows absolute positioning of child elements (dots) */
+  margin: 20px auto;                  /* Center with vertical margins */
+  display: inline-block;              /* Shrink to content width */
+  border-radius: 15px;                /* Rounded corners */
+  overflow: hidden;                   /* Hide any overflow from rounded corners */
+  box-shadow: 0 10px 25px var(--shadow-color-dark);  /* Shadow for depth */
+  transition: box-shadow 0.3s ease;   /* Smooth shadow transitions */
 }
 
+/* Main muscle diagram image */
 img#muscle-image {
-  width: 600px;
-  height: 700px;
-  object-fit: contain;
-  display: block;
-  border: 2px solid var(--border-color);
-  transition: border-color 0.3s ease;
+  width: 600px;                       /* Fixed width for consistency */
+  height: 700px;                      /* Fixed height for consistency */
+  object-fit: contain;                /* Maintain aspect ratio, fit within dimensions */
+  display: block;                     /* Remove inline spacing */
+  border: 2px solid var(--border-color);  /* Themed border */
+  transition: border-color 0.3s ease; /* Smooth border color transitions */
 }
 
+/* Clickable dots that mark muscle locations */
 .muscle-dot {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  background: var(--foreground-color);
-  border: 2px solid var(--dot-border-color);
-  border-radius: 50%;
-  cursor: pointer;
-  transform: translate(-50%, -50%);
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 10px var(--shadow-color-light);
-  z-index: 10;
+  position: absolute;                 /* Positioned relative to image-wrapper */
+  width: 16px;                        /* Fixed dot size */
+  height: 16px;                       /* Square dots */
+  background: var(--foreground-color); /* Use theme background */
+  border: 2px solid var(--dot-border-color);  /* Themed border */
+  border-radius: 50%;                 /* Make circular */
+  cursor: pointer;                    /* Show pointer cursor */
+  transform: translate(-50%, -50%);   /* Center dot on coordinates */
+  transition: all 0.3s ease;          /* Smooth transitions */
+  box-shadow: 0 2px 10px var(--shadow-color-light);  /* Shadow for visibility */
+  z-index: 10;                        /* Ensure dots appear above image */
 }
 
+/* Dot hover effects */
 .muscle-dot:hover {
-  background: var(--accent-color);
-  transform: translate(-50%, -50%) scale(1.2);
-  box-shadow: 0 4px 15px var(--shadow-color-light);
+  background: var(--accent-color);     /* Change to accent color */
+  transform: translate(-50%, -50%) scale(1.2);  /* Enlarge while keeping centered */
+  box-shadow: 0 4px 15px var(--shadow-color-light);  /* Enhanced shadow */
 }
 
+/* Hidden state for dots (when switching views) */
 .muscle-dot.hidden {
-  display: none;
+  display: none;                      /* Completely hide from layout */
 }
 
+/* Popup modal for muscle information */
 .popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--foreground-color);
-  border: none;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px var(--shadow-color-light);
-  z-index: 1000;
-  max-width: 400px;
-  width: 90%;
-  transition: background 0.3s ease;
+  position: fixed;                    /* Fixed positioning for modal overlay */
+  top: 50%;                           /* Center vertically */
+  left: 50%;                          /* Center horizontally */
+  transform: translate(-50%, -50%);   /* Perfect centering */
+  background: var(--foreground-color); /* Use theme background */
+  border: none;                       /* No border */
+  padding: 30px;                      /* Internal spacing */
+  border-radius: 20px;                /* Rounded corners */
+  box-shadow: 0 20px 40px var(--shadow-color-light);  /* Large shadow for depth */
+  z-index: 1000;                      /* High z-index to appear above everything */
+  max-width: 400px;                   /* Maximum width to prevent overly wide popups */
+  width: 90%;                         /* Responsive width */
+  transition: background 0.3s ease;   /* Smooth background transitions */
 }
 
+/* Hidden state for popup */
 .popup.hidden {
-  display: none;
+  display: none;                      /* Completely hide from layout */
 }
 
+/* Popup heading styling */
 .popup h2 {
-  color: var(--text-color);
-  margin-top: 0;
-  font-size: 1.8em;
-  font-weight: 700;
-  border-bottom: 2px solid var(--primary-color);
-  padding-bottom: 10px;
-  transition: color 0.3s ease, border-color 0.3s ease;
+  color: var(--text-color);           /* Use theme text color */
+  margin-top: 0;                      /* Remove top margin */
+  font-size: 1.8em;                   /* Large heading text */
+  font-weight: 700;                   /* Bold text */
+  border-bottom: 2px solid var(--primary-color);  /* Underline with primary color */
+  padding-bottom: 10px;               /* Space above underline */
+  transition: color 0.3s ease, border-color 0.3s ease;  /* Smooth transitions */
 }
 
+/* Popup paragraph styling */
 .popup p {
-  color: var(--popup-text-color);
-  line-height: 1.6;
-  margin: 15px 0;
-  font-size: 1.08rem;
-  transition: color 0.3s ease;
+  color: var(--popup-text-color);     /* Use theme's secondary text color */
+  line-height: 1.6;                   /* Comfortable line spacing for reading */
+  margin: 15px 0;                     /* Vertical spacing between paragraphs */
+  font-size: 1.08rem;                 /* Slightly larger than default text */
+  transition: color 0.3s ease;        /* Smooth color transitions */
 }
 
+/* Popup close button styling */
 .popup button {
-  background: var(--button-gradient);
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-  margin-top: 15px;
-  transition: all 0.3s ease;
+  background: var(--button-gradient);  /* Use theme button gradient */
+  color: white;                       /* White text for contrast */
+  border: none;                       /* Remove default border */
+  padding: 12px 25px;                 /* Comfortable padding */
+  border-radius: 25px;                /* Pill-shaped button */
+  cursor: pointer;                    /* Show pointer cursor */
+  font-size: 16px;                    /* Readable text size */
+  font-weight: 600;                   /* Semi-bold text */
+  margin-top: 15px;                   /* Space above button */
+  transition: all 0.3s ease;          /* Smooth transitions */
 }
 
+/* Popup button hover effects */
 .popup button:hover {
-  background: var(--button-gradient-hover);
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 4px 15px var(--shadow-color-dark);
+  background: var(--button-gradient-hover);  /* Reversed gradient on hover */
+  transform: translateY(-2px) scale(1.05);   /* Lift and enlarge slightly */
+  box-shadow: 0 4px 15px var(--shadow-color-dark);  /* Enhanced shadow */
 }
 
+/* Background overlay for modal */
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  z-index: 999;
-  transition: background 0.3s ease;
+  position: fixed;                    /* Fixed positioning to cover viewport */
+  top: 0;                             /* Start from top */
+  left: 0;                            /* Start from left */
+  width: 100%;                        /* Cover full width */
+  height: 100%;                       /* Cover full height */
+  background: rgba(0,0,0,0.5);        /* Semi-transparent black */
+  z-index: 999;                       /* Below popup but above everything else */
+  transition: background 0.3s ease;   /* Smooth transitions */
 }
 
+/* Hidden state for overlay */
 .overlay.hidden {
-  display: none;
+  display: none;                      /* Completely hide from layout */
 }
 
+/* Responsive design for mobile devices */
 @media (max-width: 600px) {
+  /* Adjust main container for mobile */
   .muscle-diagram-container {
-    padding: 20px 15px;
-    max-width: 95vw;
-    margin-top: 10px;
+    padding: 20px 15px;               /* Reduced padding for mobile */
+    max-width: 95vw;                  /* Use most of viewport width */
+    margin-top: 10px;                 /* Reduced top margin */
   }
   
+  /* Adjust navigation for mobile */
   .top-nav {
-    padding: 12px 15px;
-    flex-direction: row;
-    justify-content: space-between;
+    padding: 12px 15px;               /* Reduced padding */
+    flex-direction: row;              /* Keep horizontal layout */
+    justify-content: space-between;   /* Maintain spacing */
   }
   
+  /* Smaller logo text on mobile */
   .nav-left a {
-    font-size: 1rem;
+    font-size: 1rem;                  /* Smaller font size */
   }
   
+  /* Smaller theme selector on mobile */
   #theme-select {
-    padding: 6px 8px;
-    font-size: 0.8rem;
+    padding: 6px 8px;                 /* Reduced padding */
+    font-size: 0.8rem;                /* Smaller text */
   }
   
+  /* Smaller main heading on mobile */
   h1 {
-    font-size: 2rem;
+    font-size: 2rem;                  /* Reduced from 2.5em */
   }
   
+  /* Adjust buttons for mobile */
   .view-toggle button {
-    margin: 5px;
-    padding: 12px 20px;
-    font-size: 16px;
+    margin: 5px;                      /* Reduced margin */
+    padding: 12px 20px;               /* Reduced padding */
+    font-size: 16px;                  /* Smaller text */
   }
   
+  /* Responsive image sizing */
   img#muscle-image {
-    width: 100%;
-    height: auto;
-    max-width: 500px;
+    width: 100%;                      /* Full width of container */
+    height: auto;                     /* Maintain aspect ratio */
+    max-width: 500px;                 /* Maximum size limit */
   }
 }

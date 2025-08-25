@@ -1,32 +1,69 @@
-<!-- templates/theme.html -->
+<!-- Template file for theme selection page -->
+<!-- This appears to be a Flask/Jinja2 template based on the url_for() syntax -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Standard meta tag for character encoding - ensures proper display of special characters -->
     <meta charset="UTF-8">
+    
+    <!-- Page title that appears in browser tab -->
     <title>Theme Settings</title>
+    
+    <!-- Link to main CSS stylesheet -->
+    <!-- url_for() is a Flask/Jinja2 function that generates URLs for static files -->
+    <!-- This references 'static/css/main_styles.css' in the Flask application structure -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main_styles.css') }}">
 </head>
 <body>
 
+<!-- Top navigation bar section -->
 <div class="top-nav">
+    <!-- Left side of navigation - contains back button -->
     <div class="nav-left">
+        <!-- Navigation link back to main settings page -->
+        <!-- url_for('profile_settings') generates the URL for the profile_settings route -->
         <a href="{{ url_for('profile_settings') }}">Back to Settings</a>
     </div>
+    <!-- Note: No nav-right div here, unlike the muscle diagram page -->
+    <!-- This creates a simpler navigation with just the back button -->
 </div>
 
+<!-- Main content container for the theme selection interface -->
 <div class="main-container">
+    <!-- Page heading -->
     <h1>Choose Your Theme</h1>
+    
+    <!-- Label for accessibility - associates with the select dropdown -->
+    <!-- Screen readers will announce this label when the select is focused -->
     <label for="theme-select">Select Theme:</label>
+    
+    <!-- Theme selection dropdown -->
+    <!-- ID matches the label's 'for' attribute for proper accessibility -->
+    <!-- This element will be targeted by the JavaScript theme-switcher -->
     <select id="theme-select">
+        <!-- Default/Light theme option -->
         <option value="default">Default</option>
+        
+        <!-- Dark theme option - popular for reduced eye strain -->
         <option value="dark">Dark</option>
+        
+        <!-- Blue/tech theme option - professional, tech-focused appearance -->
         <option value="blue">Blue</option>
+        
+        <!-- Dark green theme option - nature/forest inspired -->
         <option value="dark-green">Dark Green</option>
+        
+        <!-- Golden theme option - luxury/elegant appearance -->
         <option value="golden">Gold</option>
+        
+        <!-- Red theme option - bold/intense appearance -->
         <option value="red">Red</option>
     </select>
 </div>
 
+<!-- JavaScript file for theme switching functionality -->
+<!-- This script handles the dropdown change events and applies themes -->
+<!-- url_for() generates the URL for 'static/js/theme-switcher.js' -->
 <script src="{{ url_for('static', filename='js/theme-switcher.js') }}"></script>
 
 </body>
