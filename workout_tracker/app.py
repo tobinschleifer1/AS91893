@@ -422,6 +422,6 @@ def update_profile():
 # Application entry point
 if __name__ == '__main__':
     # Run Flask development server with debug mode enabled
-    app.run(debug=True)
+    app.run(debug=False)
     # Print server URL (though this won't execute due to blocking run() call)
     print("\n🔥 Flask is running at http://127.0.0.1:5000")
