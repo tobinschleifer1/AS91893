@@ -7,6 +7,7 @@ from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from database_models import db, User, UserExercise, WorkoutExercise
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_sqlalchemy import SQLAlchemy
 
 # Directory structure setup for Flask application
 # Get the absolute path to the parent directory of this script
