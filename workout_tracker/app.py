@@ -351,6 +351,7 @@ def about():
 @app.route('/muscles')
 def muscles():
     """Display interactive muscle diagram educational tool"""
+    print("Muscles route accessed!")  # Debug line
     return render_template('muscle-diagram.html')
 
 # Initial profile setup route (for new users)
@@ -422,6 +423,6 @@ def update_profile():
 # Application entry point
 if __name__ == '__main__':
     # Run Flask development server with debug mode enabled
-    app.run(debug=False)
+    app.run(debug=True)
     # Print server URL (though this won't execute due to blocking run() call)
     print("\n🔥 Flask is running at http://127.0.0.1:5000")
